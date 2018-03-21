@@ -11,7 +11,8 @@ export default new Vuex.Store({
     // = data
     products: [],
     // { id, quantity}
-    cart: []
+    cart: [],
+    checkoutStatus: null
   },
 
   getters: {

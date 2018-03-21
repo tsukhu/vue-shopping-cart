@@ -17,21 +17,32 @@
 
 
 <script>
+import { mapState, mapGetters } from 'vuex'
+
 export default {
   data () {
     return {
       loading: false
     }
   },
-  computed: {
-    products () {
-      return this.$store.state.products
-    },
 
-    productIsInStock () {
-      return this.$store.getters.productIsInStock
-    }
+  computed: {
+    ...mapState({
+      products: state => state.products
+    }),
+
+    ...mapGetters({
+      productIsInStock: 'productIsInStock'
+    })
   },
+
+  // computed: {
+  //   products () {
+  //     return this.$store.state.products
+  //   },
+
+  //
+  // },
 
   methods: {
     addProductToCart (product) {
